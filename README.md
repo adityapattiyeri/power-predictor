@@ -15,7 +15,7 @@ So here is how it works:
   observations:
     - platform: template
       value_template: >
-        {{(((states.sensor.grid_power.state|float)+(states.sensor.solar_power.state|float))<0.8)}}
+        {{(((states.sensor.grid_power.state|float)+)<0.8)}}
       prob_given_true: 0.95 
 ```
 
