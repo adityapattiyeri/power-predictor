@@ -39,7 +39,7 @@ action:
         {{ (states.sensor.grid_power.state|float) }}
 mode: single
 ```
-3. Then there is a second Bayesian sensor(binary_sensor.induction) that actually detects the induction cook top.
+3. Then there is a second Bayesian sensor(binary_sensor.induction) that actually detects the induction cook top. The idle power is subtracted to make a more acurate prediction.
 ```
 - name: "Induction"
   platform: "bayesian"
@@ -49,9 +49,9 @@ mode: single
     - platform: template
       value_template: >
         {{ 
-          (((states.sensor.grid_power.state|float)+(states.sensor.solar_power.state|float)-(states.input_number.idle_power.state|float)) < 1)
+          (((states.sensor.grid_power.state|float)-(states.input_number.idle_power.state|float)) < 1)
           and
-          (((states.sensor.grid_power.state|float)+(states.sensor.solar_power.state|float)-(states.input_number.idle_power.state|float)) > 0.8)
+          (((states.sensor.grid_power.state|float)-(states.input_number.idle_power.state|float)) > 0.8)
         }} 
       prob_given_true: 0.95  
 }
@@ -93,3 +93,7 @@ action:
 mode: single
 
 ```
+
+All of the sensors used:
+
+![Screenshot 2021-11-03 at 9 44 55 PM](https://user-images.githubusercontent.com/61015809/140099770-fd7c2b73-048b-465a-9c72-a4c54a973ce2.png)
