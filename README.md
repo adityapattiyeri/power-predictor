@@ -97,3 +97,5 @@ mode: single
 All of the sensors used:
 
 ![Screenshot 2021-11-03 at 9 44 55 PM](https://user-images.githubusercontent.com/61015809/140099770-fd7c2b73-048b-465a-9c72-a4c54a973ce2.png)
+
+<a href="https://www.buymeacoffee.com/adityapattiyeri" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
